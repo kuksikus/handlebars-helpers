@@ -20,18 +20,18 @@
 		}
 	});
 
-	// Date Foarmat from its to date
-	// {{dateformat its}} // 10.11.2012
-	// {{dateformat its "rus"}} // 10 декабря 2012
-	Handlebars.registerHelper('dateformat', function(its, type) {
+	// Date Format from unix timestamp to date
+	// {{dateformat timestamp}} // 10.11.2012
+	// {{dateformat timestamp "rus"}} // 10 декабря 2012
+	Handlebars.registerHelper('dateformat', function(ts, type) {
 
 		if (typeof(type) == 'undefined' || typeof(type) == 'object') {
 			type = 'date';
 		}
 
-		its = its * 1;
-		if(!isNaN(its)) {
-			var date = new Date(its * 1000);
+		ts = ts * 1;
+		if(!isNaN(ts)) {
+			var date = new Date(ts * 1000);
 
 			var day = date.getDate();
 			var month = date.getMonth();
